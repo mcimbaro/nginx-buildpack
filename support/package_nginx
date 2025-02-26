@@ -61,7 +61,7 @@ status "Downloading Nginx ${nginx_version}"
 curl --location --remote-name --silent "https://nginx.org/download/nginx-${nginx_version}.tar.gz"
 tar -xzf "nginx-${nginx_version}.tar.gz"
 
-nginx_configure_args="--prefix=/app/vendor/nginx --with-http_ssl_module --with-http_auth_request_module --with-pcre=../pcre-${pcre_version} --with-zlib=../zlib-${zlib_version} --with-http_realip_module"
+nginx_configure_args="--prefix=/app/vendor/nginx --with-http_ssl_module --with-http_gzip_static_module --with-http_auth_request_module --with-pcre=../pcre-${pcre_version} --with-zlib=../zlib-${zlib_version} --with-http_realip_module"
 if [ "$NO_MODSECURITY_MODULE" != "true" ] ; then
   status "Downloading ModSecurity ${MODSECURITY_VERSION}"
   modsecurity_filename="modsecurity-${MODSECURITY_VERSION}.tgz"
